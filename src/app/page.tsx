@@ -1,8 +1,9 @@
 "use client";
 
-import ReactFullpage from '@fullpage/react-fullpage';
+import ReactFullpage from "@fullpage/react-fullpage";
 import { FlickeringGridBackground } from "@/components/magicui/flickering-grid";
 import HeroSection from "@/components/HeroSection";
+import ProjectsSection from "@/components/ProjectsSection";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         render={() => (
           <ReactFullpage.Wrapper>
             <HeroSection />
+            <ProjectsSection />
           </ReactFullpage.Wrapper>
         )}
       />
