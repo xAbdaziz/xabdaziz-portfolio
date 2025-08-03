@@ -1,7 +1,7 @@
 "use client";
 
 import { Marquee } from "@/components/magicui/marquee";
-import { ProjectCard, type Project } from "@/components/ProjectCard";
+import { ProjectCard, type Project } from "@/components/ui/ProjectCard";
 import { RevealAnimation } from "@/components/ui/reveal-animation";
 
 const projects: Project[] = [
@@ -43,16 +43,16 @@ const projects: Project[] = [
 export default function ProjectsSection() {
   return (
     <div className="section">
-      <section className="relative overflow-hidden py-24 h-screen flex flex-col justify-center">
+      <section className="relative overflow-hidden py-8 sm:py-16 lg:py-24 h-dvh flex flex-col justify-center">
 
         {/* Header */}
         <RevealAnimation delay={0}>
-          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 mb-16">
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-3 sm:mb-6 lg:mb-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
                 My Projects
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-1 sm:mt-2 lg:mt-4 text-sm sm:text-base lg:text-lg text-muted-foreground">
                 A collection of projects that showcase my skills and passion for development
               </p>
             </div>
@@ -61,8 +61,8 @@ export default function ProjectsSection() {
 
         {/* Projects */}
         <RevealAnimation delay={0.2}>
-          <div className="relative z-10">
-            <Marquee pauseOnHover className="[--duration:30s]">
+          <div className="relative z-10 flex-1 flex items-center min-h-0">
+            <Marquee pauseOnHover className="[--duration:30s] w-full">
               {projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -72,8 +72,8 @@ export default function ProjectsSection() {
 
         {/* My GitHub Profile */}
         <RevealAnimation delay={0.4}>
-          <div className="relative z-10 mx-auto mt-16 max-w-2xl text-center">
-            <p className="text-muted-foreground">
+          <div className="relative z-10 mx-auto mt-3 sm:mt-6 lg:mt-8 max-w-2xl text-center px-4">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Want to see more? Check out my{" "}
               <a
                 href="https://github.com/xAbdaziz"

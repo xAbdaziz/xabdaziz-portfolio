@@ -19,13 +19,13 @@ const typeItOptions = {
 export default function HeroSection() {
   return (
     <div className="section">
-      <div className="relative z-10 h-screen flex flex-col lg:flex-row items-center justify-center px-4 lg:px-16 gap-8 lg:gap-0">
+      <div className="relative z-10 h-dvh flex flex-col lg:flex-row items-center justify-center px-4 lg:px-16 gap-4 lg:gap-0">
         {/* Avatar */}
         <RevealAnimation
           delay={0.3}
           className="flex justify-center items-center order-1 lg:order-2"
         >
-          <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-full overflow-hidden">
             <Image
               src={me}
               alt="Abdulaziz Banabilah"
@@ -37,20 +37,20 @@ export default function HeroSection() {
 
         {/* Text */}
         <RevealAnimation className="max-w-2xl lg:mr-16 text-center lg:text-left order-2 lg:order-1">
-          <h1 className="text-4xl lg:text-5xl font-light mb-2">Hello, I'm</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-light mb-1 sm:mb-2">Hello, I'm</h1>
 
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-6">
             Abdulaziz Banabilah
           </h2>
 
-          <h3 className="text-3xl lg:text-4xl mb-8">
+          <h3 className="text-xl sm:text-2xl lg:text-4xl mb-4 sm:mb-8">
             I'm a{" "}
             <span className="font-semibold">
               <TypeIt options={typeItOptions} />
             </span>
           </h3>
 
-          <p className="text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
             Full-Stack Developer and System Administrator who transforms ideas
             into scalable applications. Experienced in React, Next.js, Node.js,
             Docker. I bridge development and operations, building clean,
