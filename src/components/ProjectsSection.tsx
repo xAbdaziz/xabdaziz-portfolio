@@ -62,7 +62,7 @@ export default function ProjectsSection() {
         {/* Projects */}
         <RevealAnimation delay={0.2}>
           <div className="relative z-10 flex-1 flex items-center min-h-0">
-            <Marquee pauseOnHover className="[--duration:30s] w-full">
+            <Marquee pauseOnHover pauseOnClick className="[--duration:30s] w-full">
               {projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}

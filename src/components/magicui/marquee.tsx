@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useState, useEffect, useRef } from "react";
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   /**
@@ -16,6 +16,11 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
    * @default false
    */
   pauseOnHover?: boolean;
+  /**
+   * Whether to pause the animation on click/touch (useful for mobile)
+   * @default false
+   */
+  pauseOnClick?: boolean;
   /**
    * Content to be displayed in the marquee
    */
@@ -36,19 +41,50 @@ export function Marquee({
   className,
   reverse = false,
   pauseOnHover = false,
+  pauseOnClick = false,
   children,
   vertical = false,
   repeat = 4,
   ...props
 }: MarqueeProps) {
+  const [isPaused, setIsPaused] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (pauseOnClick) {
+      e.stopPropagation();
+      setIsPaused(!isPaused);
+    }
+  };
+
+  useEffect(() => {
+    if (!pauseOnClick) return;
+
+    const handleClickOutside = (event: Event) => {
+      if (marqueeRef.current && !marqueeRef.current.contains(event.target as Node)) {
+        setIsPaused(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [pauseOnClick]);
   return (
     <div
       {...props}
+      ref={marqueeRef}
+      onClick={handleClick}
       className={cn(
         "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
+          "cursor-pointer": pauseOnClick,
         },
         className,
       )}
@@ -62,6 +98,7 @@ export function Marquee({
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
               "group-hover:[animation-play-state:paused]": pauseOnHover,
+              "[animation-play-state:paused]": isPaused,
               "[animation-direction:reverse]": reverse,
             })}
           >
