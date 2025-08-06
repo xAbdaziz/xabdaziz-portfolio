@@ -37,8 +37,7 @@ export function ParticleBackground() {
             interactivity: {
               events: {
                 onClick: {
-                  enable: true,
-                  mode: "push",
+                  enable: false,
                 },
                 onHover: {
                   enable: true,
