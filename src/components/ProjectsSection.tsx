@@ -1,7 +1,7 @@
 "use client";
 
 import { Marquee } from "@/components/magicui/marquee";
-import { ProjectCard, type Project } from "@/components/ui/ProjectCard";
+import { ProjectCard, type Project } from "@/components/ui/project-card";
 import { RevealAnimation } from "@/components/ui/reveal-animation";
 
 const projects: Project[] = [

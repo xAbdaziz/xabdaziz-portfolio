@@ -14,6 +14,7 @@ const typeItOptions = {
   loop: true,
   nextStringDelay: 2000,
   loopDelay: 1000,
+  cursor: true,
 };
 
 export default function HeroSection() {
@@ -31,26 +32,26 @@ export default function HeroSection() {
               alt="Abdulaziz Banabilah"
               className="w-full h-full object-cover"
             />
-            <ShineBorder borderWidth={3} duration={8} shineColor="black" />
+            <ShineBorder borderWidth={3} duration={8} shineColor="white" />
           </div>
         </RevealAnimation>
 
         {/* Text */}
         <RevealAnimation className="max-w-2xl lg:mr-16 text-center lg:text-left order-2 lg:order-1">
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-light mb-1 sm:mb-2">Hello, I'm</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-light mb-1 sm:mb-2 text-foreground">Hello, I'm</h1>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-6 text-foreground">
             Abdulaziz Banabilah
           </h2>
 
-          <h3 className="text-xl sm:text-2xl lg:text-4xl mb-4 sm:mb-8">
+          <h3 className="text-xl sm:text-2xl lg:text-4xl mb-4 sm:mb-8 text-foreground">
             I'm a{" "}
-            <span className="font-semibold">
+            <span className="font-semibold text-white [&_.ti-cursor]:text-white">
               <TypeIt options={typeItOptions} />
             </span>
           </h3>
 
-          <p className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 text-muted-foreground">
             Full-Stack Developer and System Administrator who transforms ideas
             into scalable applications. Experienced in React, Next.js, Node.js,
             Docker. I bridge development and operations, building clean,
