@@ -4,12 +4,17 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import { ParticleBackground } from "@/components/ui/particle-background";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen dark" style={{ backgroundColor: '#242424' }}>
-      {/* Full Page Scroll Container */}
-      <ReactFullpage
+    <>
+      {/* Particle Background */}
+      <ParticleBackground />
+      
+      <div className="relative min-h-screen dark">
+        {/* Full Page Scroll Container */}
+        <ReactFullpage
         licenseKey="gplv3-license"
         credits={{ enabled: false }}
         scrollingSpeed={400}
@@ -24,7 +29,7 @@ export default function Home() {
           </ReactFullpage.Wrapper>
         )}
       />
-    </div>
-
+      </div>
+    </>
   );
 }
